@@ -1,0 +1,25 @@
+{
+  "name": "Inject Header",
+  "description": "Modify HTTP request headers.",
+  "version": "0.0.1",
+  "manifest_version": 3,
+  "permissions": ["declarativeNetRequest", "storage"],
+  "host_permissions": ["*://*/*"],
+  "background": {
+    "scripts": ["dist/background.js"],
+    "service_worker": "dist/background.js",
+    "type": "module"
+  },
+  "action": {
+    "default_popup": "src/popup.html"
+  },
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "@aigr20-inject-header",
+      "data_collection_permissions": {
+        "required": ["none"],
+        "optional": []
+      }
+    }
+  }
+}

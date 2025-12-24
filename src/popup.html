@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Inject Header</title>
+    <script
+      src="../dist/popup.js"
+      type="module"
+      defer></script>
+    <link
+      rel="stylesheet"
+      href="style.css" />
+  </head>
+  <body>
+    <form id="header-form">
+      <table>
+        <thead>
+          <tr>
+            <th class="table-heading">Enabled</th>
+            <th class="table-heading">Header</th>
+            <th class="table-heading">Value</th>
+            <th class="table-heading">Note</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+      <div class="form-buttons">
+        <button
+          type="submit"
+          class="btn primary-btn">
+          Save
+        </button>
+        <button
+          type="button"
+          class="btn"
+          id="add-row">
+          New rule
+        </button>
+      </div>
+    </form>
+  </body>
+</html>
