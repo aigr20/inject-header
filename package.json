@@ -7,6 +7,9 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "scripts": {
+    "package": "tsc && web-ext build --overwrite-dest -i src/scripts package.json pnpm-lock.yaml dist/*.ts dist/*.map README.md tsconfig.json"
+  },
   "devDependencies": {
     "chrome-types": "^0.1.402",
     "prettier": "^3.7.4",
