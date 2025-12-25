@@ -16,6 +16,7 @@ body {
 }
 
 table {
+  width: 100%;
   border-collapse: collapse;
   margin-bottom: 0.5rem;
 }
@@ -128,6 +129,13 @@ table tr {
 .btn.primary-btn {
   --btn-background: #4f46e5;
   --btn-hover-background: #4338ca;
+  border: none;
+  color: white;
+}
+
+.btn.danger-btn {
+  --btn-background: #dc2626;
+  --btn-hover-background: #b91c1c;
   border: none;
   color: white;
 }

@@ -32,9 +32,16 @@ function createRuleRow(rule: Rule | null): Element {
   const headerName = createInputForRule(rule, "header");
   const headerValue = createInputForRule(rule, "value");
   const headerNote = createInputForRule(rule, "note");
+  const removeBtn = createButton(
+    "Remove",
+    () => {
+      row.remove();
+    },
+    "danger-btn",
+  );
 
   row.append(
-    ...[headerEnabled, headerName, headerValue, headerNote].map((node) => {
+    ...[headerEnabled, headerName, headerValue, headerNote, removeBtn].map((node) => {
       const td = document.createElement("td");
       td.classList.add("form-cell");
       td.append(node);
@@ -74,6 +81,20 @@ function createCheckbox(name: string, checked: boolean): Element {
   return container;
 }
 
+function createButton(
+  content: string,
+  onClick: (event: MouseEvent) => void,
+  ...classes: string[]
+): HTMLButtonElement {
+  const button = document.createElement("button");
+  button.type = "button";
+  button.textContent = content;
+  button.addEventListener("click", onClick);
+  button.classList.add("btn", ...classes);
+
+  return button;
+}
+
 function onFormSubmit(data: FormData): void {
   const rules: Rule[] = [];
 
@@ -91,7 +112,7 @@ function onFormSubmit(data: FormData): void {
     const value = data.get(`value-${i}`) ?? "";
     const note = data.get(`note-${i}`) ?? "";
 
-    if (!header && !value && !note && !enabled) {
+    if (!header && !value && !note) {
       continue;
     }
     if (!formEntryIsString(header) || !formEntryIsString(value) || !formEntryIsString(note)) {
